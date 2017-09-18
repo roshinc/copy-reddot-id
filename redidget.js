@@ -22,14 +22,20 @@ function getFirstComment(rootElem) {
   {
 	// If the comments is empty
 	if (firstComment.length == 0)
-   return ""
+  {
+    console.log("Could not find a comment in head, may not be a RedDot page.")
+    return ""
+  }
   //Holding varibles 
 	var idString = "ID:"; //The formated ID string
   var idStart = firstComment.indexOf("PageID"); // Start of the id substring
   var idEnd = firstComment.indexOf("-"); // End of the id substring
   // Check weather it is a reddot page/ we have the correct comment
   if(idStart == -1)
+  {
+    console.log("Could not find a RedDot comment, may not be a reddot page.")
   	return ""
+  }
   //Add the id number to the ID string
   idString = idString.concat(firstComment.substring(idStart + 7, idEnd - 1));
   
@@ -38,7 +44,9 @@ function getFirstComment(rootElem) {
 
 function CopyFormattedID() {
 	//prompt("Copy to clipboard: Ctrl+C, Enter", getRedID(getFirstComment(document.head)));
-
+  idResult = getRedID(getFirstComment(document.head));
+  if (idResult.length == 0)
+    return
   //Copy direct to clipboard method from 
   //https://stackoverflow.com/questions/33855641/copy-output-of-javascript-variable-to-clipboard
   var dummy = document.createElement("input");
@@ -47,7 +55,7 @@ function CopyFormattedID() {
     // Set its ID
     dummy.setAttribute("id", "dummy_id");
     // Output the array into it  
-    document.getElementById("dummy_id").value = getRedID(getFirstComment(document.head));  
+    document.getElementById("dummy_id").value = idResult;  
     // Select it
     dummy.select();
     // Copy its contents
