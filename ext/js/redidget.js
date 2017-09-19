@@ -2,6 +2,14 @@
 
 CopyFormattedID();
 
+chrome.storage.sync.get({
+    favoriteColor: 'red',
+    likesColor: true
+  }, function(items) {
+    alert(items.favoriteColor);
+    alert(items.likesColor);
+  });
+
 function filterNone() {
   return NodeFilter.FILTER_ACCEPT;
 }
