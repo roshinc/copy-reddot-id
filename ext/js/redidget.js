@@ -2,14 +2,6 @@
 
 CopyFormattedID();
 
-chrome.storage.sync.get({
-    favoriteColor: 'red',
-    likesColor: true
-  }, function(items) {
-    alert(items.favoriteColor);
-    alert(items.likesColor);
-  });
-
 function filterNone() {
   return NodeFilter.FILTER_ACCEPT;
 }
@@ -35,7 +27,7 @@ function getFirstComment(rootElem) {
     return ""
   }
   //Holding varibles 
-	var idString = "ID:"; //The formated ID string
+	var idString = "ID: "; //The formated ID string
   var idStart = firstComment.indexOf("PageID"); // Start of the id substring
   var idEnd = firstComment.indexOf("-"); // End of the id substring
   // Check weather it is a reddot page/ we have the correct comment
@@ -53,11 +45,29 @@ function getFirstComment(rootElem) {
 function CopyFormattedID() {
 	//prompt("Copy to clipboard: Ctrl+C, Enter", getRedID(getFirstComment(document.head)));
   idResult = getRedID(getFirstComment(document.head));
+    
   if (idResult.length == 0)
   {
-    alert("Not a RedDot Page!")
-    return
+    chrome.storage.sync.get({
+    redAlert: true
+  }, function(items) {
+    if(items.redAlert)
+        alert("Not a RedDot Page!");
+  });
+    return;
   }
+    
+    chrome.storage.sync.get({
+    verboseCopying: false
+  }, function(items) {
+    if(items.verboseCopying)
+        {
+            prompt("Copy to clipboard: Ctrl+C, Enter", idResult);
+            return;
+        }
+  });
+    
+    
   //Copy direct to clipboard method from 
   //https://stackoverflow.com/questions/33855641/copy-output-of-javascript-variable-to-clipboard
   var dummy = document.createElement("input");

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Copy RedDot ID Options</title>
+	<link rel="stylesheet" href="css/spectre.min.css">
+	<link rel="stylesheet" href="css/spectre-icons.min.css">
+</head>
+<body>
+	<div class="text-center p-2">
+		<h2>Copy RedDot ID Options</h2>
+		<p>Tiny things you can toggle, hover over them to read what the do.</p>
+    <div class="popover popover-bottom">
+      <!-- form switch control -->
+      <div class="form-group">
+       <label class="form-switch">
+        <input type="checkbox" id="ralert">
+        <i class="form-icon"></i> Show alert on non RedDot pages.
+      </label>
+    </div>
+    <div class="popover-container">
+      <div class="card">
+        <div class="card-header">
+          <strong>Show alert on non RedDot pages.</strong>
+        </div>
+        <div class="card-body">
+          <p>
+            If enabled, shows an <code>alert()</code> whenever the extention is pressed on a non RedDot page.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popover popover-bottom">
+    <!-- form switch control -->
+    <div class="form-group">
+     <label class="form-switch">
+      <input type="checkbox" id="vcopy">
+      <i class="form-icon"></i> Verbose copying.
+    </label>
+  </div>
+  <div class="popover-container">
+    <div class="card">
+      <div class="card-header">
+        <strong>Verbose copying.</strong>
+      </div>
+      <div class="card-body">
+        <p>
+          If <span class="text-primary">enabled</span>, shows an <code>prompt()</code> with the page ID so that you can copy it.
+        </p>
+        <p>
+          If <span class="text-gray">disabled</span>, the page ID is copied directly into your clipbord.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- form submit control -->
+<div id="status"></div>
+<br />
+<button id="save" class="btn btn-primary">Save</button>
+</div>
+
+<script src="options.js"></script>
+</body>
+</html>

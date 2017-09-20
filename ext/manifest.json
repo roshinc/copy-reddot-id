@@ -13,7 +13,7 @@
   "browser_action": {
     "default_title": "Copy ID!"
   },
-  "options_page": "options.html",
+  "options_page": "options/options.html",
   "icons": {
     "128": "icon/icon.png",
     "16": "icon/icon.png",
