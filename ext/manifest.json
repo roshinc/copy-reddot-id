@@ -4,7 +4,8 @@
   "version": "0.0.3",
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "clipboardWrite"
   ],
   "background": {
     "scripts": ["js/background.js"],
