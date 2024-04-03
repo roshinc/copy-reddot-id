@@ -3,15 +3,15 @@
   "description": "Copys the ID of the current RedDot page",
   "version": "0.0.3",
   "permissions": [
+    "scripting",
     "activeTab",
     "storage",
     "clipboardWrite"
   ],
   "background": {
-    "scripts": ["js/background.js"],
-    "persistent": false
+    "service_worker": "js/background.js"
   },
-  "browser_action": {
+  "action": {
     "default_title": "Copy ID!"
   },
   "options_page": "options/options.html",
@@ -20,5 +20,6 @@
     "16": "icon/icon.png",
     "48": "icon/icon.png"
   },
-  "manifest_version": 2
+  "manifest_version": 3,
+  "host_permissions": []
 }

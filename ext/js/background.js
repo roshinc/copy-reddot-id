@@ -1,8 +1,8 @@
-
-// Called when the user clicks on the browser action.
-chrome.browserAction.onClicked.addListener(function(tab) {
+// Called when the user clicks on the extension icon.
+chrome.action.onClicked.addListener((tab) => {
   // No tabs or host permissions needed!
-  chrome.tabs.executeScript({
-    file: 'js/redidget.js'
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    files: ['js/redidget.js']
   });
 });
