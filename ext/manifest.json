@@ -1,7 +1,7 @@
 {
   "name": "Copy RedDot ID",
   "description": "Copys the ID of the current RedDot page",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "permissions": [
     "scripting",
     "activeTab",
